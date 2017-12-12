@@ -1,0 +1,43 @@
+void signingIn() {
+    ifstream log;
+    log.open("log.txt", ios::in);
+    ifstream pass;
+    pass.open("pass.txt", ios::in);
+    j = 0;
+    cout << "login : ";
+    cin >> lg1;
+    cout << endl << "password : ";
+    cin >> par1;
+    while (!log.eof()) {
+        log >> lg;
+        pass >> par;
+        for (i = 0; i < strlen(lg); i++)
+            if (lg[i] == lg1[i] && par[i] == par1[i])
+                j = j + 1;;
+        if (j >= strlen(lg)) goto k1;
+        j = 0;
+    }
+    log.close();
+    pass.close();
+    cout << "Incorrect login or password! Please, try again" << endl;
+    goto end2;
+k1: cout << "Operation is succesful!" << endl;
+    log.close();
+    pass.close();
+    firstFunction();
+end2:;
+}
+void userRegistration() {
+    ofstream log;
+    log.open("log.txt", ios::app);
+    ofstream pass;
+    pass.open("pass.txt", ios::app);
+    cout << "Enter login: ";
+    cin >> lg1;
+    cout << endl << "Enter password: ";
+    cin >> par1;
+    log << "\n" << lg1;
+    pass << "\n" << par1;
+    cout << endl << "Registration is succesful!" << endl;
+    log.close(); pass.close();
+}
