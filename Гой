@@ -1,0 +1,55 @@
+#include <iostream>
+#include <stdio.h>
+#include <fstream>
+#include <stdlib.h>
+#include <string>
+#include <iomanip>
+#include <cmath>
+#include <cstdio>
+using namespace std;
+char lg[21], lg1[21], par1[21], par[21], user[21];
+int i, j, o;
+void firstFunction();
+void signingIn();
+void userRegistration();
+int main() {
+    
+k0: cout << "                Menu            " << endl;
+    cout << "1.Sign in" << endl;
+    cout << "2.Registration" << endl;
+    cout << "3.Exit" << endl;
+    cout << "Please, choose the operation" << endl;
+    cout << "Operation №";
+    cin >> o; cout << endl;
+    switch (o) {
+        case 1: {signingIn();
+            goto k0; }
+        case 2: {userRegistration();
+            goto k0; }
+        case 3: goto end;
+    }
+end:
+    cout << "Done" << endl;
+    return 0;
+    
+}
+void firstFunction() {
+    {
+        int m, n;
+        float N, k;
+        ifstream input("file1.txt");
+        ofstream output("file2.txt");
+        if (!input.is_open()) {
+            cout << "Error! Couldn't open the file!" << endl;
+        }
+        input >> m >> n;
+        N = pow(m, n);
+        k = log2(N);
+        output << "The amount of the information which is contained in your string is" << k << endl;
+        output << "Done!";
+        input.close();
+        output.close();
+        cout << "Entropy = " << k << endl;
+        cout << "The information is in the file file2.txt" << endl;
+    }
+}
